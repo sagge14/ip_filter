@@ -14,11 +14,8 @@ jobs:
             matrix:
                 include:
                     - os: ubuntu-latest
-                      artifact_name: sqlite3-stats.so
                     - os: windows-latest
-                      artifact_name: sqlite3-stats.dll
                     - os: macos-latest
-                      artifact_name: sqlite3-stats.dylib
 
         steps:
             - uses: actions/checkout@v2
@@ -27,15 +24,15 @@ jobs:
 
             - name: Build for Linux
               if: matrix.os == 'ubuntu-latest'
-              run: gcc -fPIC -lm -shared src/stats.c -o dist/sqlite3-stats.so
+              run: gcc -fPIC -lm -shared src/stats.c
 
             - name: Build for Windows
               if: matrix.os == 'windows-latest'
-              run: gcc -fPIC -lm -shared src/stats.c -o dist/sqlite3-stats.dll
+              run: gcc -fPIC -lm -shared src/stats.c
 
             - name: Build for macOS
               if: matrix.os == 'macos-latest'
-              run: gcc -fno-common -dynamiclib src/stats.c -o dist/sqlite3-stats.dylib
+              run: gcc -fno-common -dynamiclib src/stats.c
 
             - name: Upload binaries to release
               uses: svenstaro/upload-release-action@v2
