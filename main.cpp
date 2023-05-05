@@ -7,9 +7,9 @@
 #include <tuple>
 #include <algorithm>
 
-// ("",  '.') -> [""] 123
+// ("",  '.') -> [""]
 // ("11", '.') -> ["11"]
-// ("..", '.')ffff -> ["", "", ""]
+// ("..", '.') -> ["", "", ""]
 // ("11.", '.') -> ["11", ""]
 // (".11", '.') -> ["", "11"]
 // ("11.22", '.') -> ["11", "22"]
@@ -36,10 +36,10 @@ int main(int argc, char const *argv[])
     try
     {
 
-        std::fstream f("ip_filter.tsv");
+      //  std::fstream f("ip_filter.tsv");
+
         std::vector<std::vector<std::string>> ip_pool;
         typedef decltype(*ip_pool.cbegin()) myIt;
-
 
         auto printIP = [](myIt& ip)
         {
@@ -102,13 +102,14 @@ int main(int argc, char const *argv[])
             }
         };
 
-        for(std::string line; std::getline(f, line) ;)
+        for(std::string line; std::getline(std::cin, line) ;)
+        //for(std::string line; std::getline(f, line) ;)
         {
             std::vector<std::string> v = split(line, '\t');
             ip_pool.push_back(split(v.at(0), '.'));
         }
 
-        f.close();
+      //  f.close();
 
         // TODO reverse lexicographically sort
 
