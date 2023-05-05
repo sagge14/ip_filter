@@ -23,7 +23,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            - run: mkdir dist
+            - run: mkdir src
 
             - name: Build for Linux
               if: matrix.os == 'ubuntu-latest'
