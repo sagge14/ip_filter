@@ -24,15 +24,15 @@ jobs:
 
             - name: Build for Linux
               if: matrix.os == 'ubuntu-latest'
-              run: gcc -fPIC -lm -shared src/stats.c
+              run: gcc -fPIC -lm 
 
             - name: Build for Windows
               if: matrix.os == 'windows-latest'
-              run: gcc -fPIC -lm -shared src/stats.c
+              run: gcc -fPIC -lm 
 
             - name: Build for macOS
               if: matrix.os == 'macos-latest'
-              run: gcc -fno-common -dynamiclib src/stats.c
+              run: gcc -fno-common 
 
             - name: Upload binaries to release
               uses: svenstaro/upload-release-action@v2
