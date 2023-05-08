@@ -40,10 +40,7 @@ int main(int argc, char const *argv[])
             for(auto ip_part = ip.cbegin(); ip_part != ip.cend(); ++ip_part)
             {
                 if (ip_part != ip.cbegin())
-                {
                     std::cout << ".";
-
-                }
                 std::cout << *ip_part;
             }
             std::cout << std::endl;
@@ -75,7 +72,7 @@ int main(int argc, char const *argv[])
 
              return false;
         };
-        auto filter = [&ip_pool,printIP](size_t n)
+        auto filter = [&ip_pool, printIP](size_t n)
         {
             for(const auto& ip:ip_pool)
                 if(std::atoi(ip.at(0).c_str()) == n)
@@ -87,13 +84,11 @@ int main(int argc, char const *argv[])
                 if(std::atoi(ip.at(0).c_str()) == a && std::atoi(ip.at(1).c_str()) == b)
                     printIP(ip);
         };
-        auto filter_any = [&ip_pool,printIP](size_t n)
+        auto filter_any = [&ip_pool, printIP](size_t n)
         {
             for(const auto& ip:ip_pool)
-            {
                 if(std::any_of(ip.cbegin(),ip.cend(),[n](auto& i){return std::atoi(i.c_str()) == n;}))
                     printIP(ip);
-            }
         };
 
         //for(std::string line; std::getline(std::cin, line) ;)
