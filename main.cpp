@@ -122,6 +122,6 @@ int main(int argc, char const *argv[])
     {
         std::cerr << e.what() << std::endl;
     }
-    system("pause");
+    std::getchar();
     return 0;
 }
