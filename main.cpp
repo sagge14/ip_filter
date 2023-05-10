@@ -58,19 +58,7 @@ int main(int argc, char const *argv[])
             ip1 = myTuple(a);
             ip2 = myTuple(b);
 
-            if(std::get<0>(ip1) > std::get<0>(ip2))
-                return true;
-
-            if(std::get<0>(ip1) == std::get<0>(ip2) && std::get<1>(ip1) > std::get<1>(ip2))
-                return true;
-
-            if(std::get<1>(ip1) == std::get<1>(ip2) && std::get<2>(ip1) > std::get<2>(ip2))
-                return true;
-
-            if(std::get<2>(ip1) == std::get<2>(ip2) && std::get<3>(ip1) > std::get<3>(ip2))
-                return true;
-
-             return false;
+           return ip1 > ip2;
         };
         auto filter = [&ip_pool, printIP](size_t n)
         {

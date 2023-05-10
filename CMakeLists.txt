@@ -7,7 +7,7 @@ project(ip_filter VERSION ${PROJECT_VESRION})
 
 configure_file(version.h.in version.h)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 add_executable(ip_filter main.cpp)
 
